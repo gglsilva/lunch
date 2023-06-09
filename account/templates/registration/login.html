@@ -1,85 +1,60 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}Log-in{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-sm">
-      <h2>
-        Acesse
-      </h2>
-      <p>
-        Com o usuário e senha para entrar
-      </p>
+  <div id="login" class="row p-3 text-white">
+    <!-- Left -->
+    
+    <div  id="left-content" class="col-lg-6 d-md-none d-sm-none d-lg-block bg-white left-box">
+      <div class="featured-image d-flex justify-content-center  mb-3">
+        <img src="{% static 'img/abstract_572.jpg' %}" class="img-fluid" style="width: 450px;">
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="login-form">
-      <form action="{% url 'account:login' %}" method="post">
-        {{ form.as_p}}
-        {% csrf_token %}
-        <!-- <input type="hidden" name="next" value="{{ next }}" /> -->
-        <div>
-          <input type="checkbox">
-          <label >Lembrar minha senha</label>
-          <a href="#">Esqueci minha senha</a>
+    <!-- Right -->
+    <div id="right-content" class="col-lg-6 col-md-12 col-sm-12 right-box bg-orange-500 p-5">
+      <div class="row align-items-center">
+        <div class="header-text mb-2">
+          <h2 class="fw-bolder">Acesse</h2>
+          <p class="fw-medium">Com o usuário e senha para entrar</p>
         </div>
-        <input type="submit" value="Cadastrar">
-        <input type="submit" value="Log-in">
-      </form>
+        <div class="login-form">
+          <form action="{% url 'account:login' %}" method="post">
+            <!-- {{form.as_p}} -->
+            {{ form|crispy }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"> 
+            <div class="input-group d-flex justify-content-between align-content-center mt-1">
+              <div class="form-check m-0 p-0">
+                <input class="checkbox" type="checkbox">
+                <label class="remember-password">Lembrar senha</label>
+              </div>
+              <div>
+                <a class="forget-password" href="#">Esqueci minha senha</a>
+              </div>
+            </div>
+            <div class="input-group d-flex justify-content-between align-content-center mt-1">
+              <div class="col-5"><button class="btn btn-register w-100">Cadastrar</button></div>
+              <div class="col-5"><button class="btn btn-login w-100">Log-in</button></div>
+            </div>
+          </form>
+          <div class="social mt-4">
+            <!-- <div class="input-group d-flex justify-content-between align-content-center"> -->
+              <h4 id="social-access">Ou acesse com</h4>
+              <div class="social-links input-group d-flex gap-4 justify-content-center align-content-center">
+                <a href="">
+                  <img src="{% static 'icons/pesquisa.png' %}" alt="" width="25px">
+                </a>
+                <a href="">
+                  <img src="{% static 'icons/facebook.png' %}" alt="" width="25px">
+                </a>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-3">
-      <hr>
-    </div>
-    <div class="col-6">
-      <h4>Ou acesse com</h4>
-    </div>
-    <div class="col-3">
-      <hr>
-    </div>
-  </div>
-  <div class="row">
-    <col-sm-4>
-      <a href="{ url "social:begin" "facebook" %}">Sign in with Facebook</a>
-    </col-sm-4>
-    <col-sm-4>
-      <a href="{ url "social:begin" "twitter" %}">Login with Twitter</a>
-    </col-sm-4>
-    <col-sm-4>
-      <a href="{ url "social:begin" "google-oauth2" %}">Login with Google</a>
-    </col-sm-4>
-  </div>
-  <!-- <h1>Log-in</h1>
-  {% if form.errors %}
-    <p>
-      Your username and password didn't match.
-      Please try again.
-    </p>
-  {% else %}
-    <p>Please, use the following form to log-in. If you don't have an account <a href="{% url "account:register" %}">register here</a></p>
-  {% endif %}
-  <div class="login-form">
-    <form action="{% url 'account:login' %}" method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Log-in"></p>
-    </form>
-    <p><a href="{% url "account:password_reset" %}">Forgotten your password?</a></p>
-  </div>
-  <div class="social">
-    <ul>
-      <li class="facebook">
-        <a href="{ url "social:begin" "facebook" %}">Sign in with Facebook</a>
-      </li>
-      <li class="twitter">
-        <a href="{ url "social:begin" "twitter" %}">Login with Twitter</a>
-      </li>
-      <li class="google">
-        <a href="{ url "social:begin" "google-oauth2" %}">Login with Google</a>
-      </li>
-    </ul>
-  </div> -->
 {% endblock %}

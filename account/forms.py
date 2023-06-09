@@ -4,9 +4,14 @@ from .models import Profile
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='username')
+    password = forms.CharField(label='password')
 
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['placeholder'] = 'username'
+        self.fields['password '].widget.attrs['placeholder'] = 'password'
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password',
