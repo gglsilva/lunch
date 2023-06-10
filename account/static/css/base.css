@@ -27,7 +27,7 @@ body{
 /* Inputs */
 #id_username, #id_password {
     border-radius: 4px;
-    height: 40px;
+    height: 40px;   
 }
 
 /*  */
@@ -48,12 +48,26 @@ body{
     border: #fff 2px solid;   
     color: white;
     border-radius: 4px !important; 
+    transition: 0.6s;
 }
 .btn-login{
     background-color: #fff;
     color: #EC8E00;
     border: #fff 2px solid;
     border-radius: 4px !important; 
+    transition: 0.4s;
+}
+
+.btn-register:hover {
+    background-color: white;
+    color: #EC8E00;
+    font-weight: bold;
+}
+.btn-login:hover{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
 }
 /* Social */
 #social-access {
@@ -85,7 +99,17 @@ body{
         border: #EC8E00 2px solid;
         border-radius: 4px !important; 
     }   
-    
+    .btn-register:hover {
+        background-color: #EC8E00;
+        color: white;
+        font-weight: bold;
+    }
+    .btn-login:hover{
+        background-color: white;
+        color: #EC8E00;
+        font-weight: bold;
+        border: 2px solid #EC8E00;
+    }
     .forget-password{
         color: #EC8E00;
     }
