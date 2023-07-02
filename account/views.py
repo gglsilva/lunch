@@ -60,6 +60,10 @@ def register(request):
                   {'user_form': user_form})
 
 
+def register_done(request):
+    return render(request, 'account/register_done.html')
+
+
 @login_required
 def edit(request):
     if request.method == 'POST':

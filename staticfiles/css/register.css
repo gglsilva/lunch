@@ -1,0 +1,35 @@
+#register-done{
+    background-image: url('{% static "img/backgroung2.svg" %}');
+}
+#btn-register:hover{
+    border: 1px solid white;
+}
+
+@media only screen and (max-width:991px){
+    #id_username, 
+    #id_first_name,
+    #id_email,
+    #id_password,
+    #id_password2 {
+        height: 35px;
+        background-color: #e7e7e7fd;
+        border-radius: 5px;
+    }
+
+    #btn-register{ 
+        background-color:#EC8E00 !important;
+    }
+
+    #btn-register:hover{
+        background: transparent !important;
+        color: #EC8E00 !important;
+        border: #EC8E00 1.5px solid;
+    }
+
+}
+.teste2{
+    z-index: 1;
+}
+.teste{
+    z-index: -1;
+}

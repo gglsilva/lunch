@@ -1,13 +1,28 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+  <link href="{% static 'css/register.css' %}" rel="stylesheet">
+{% endblock head %}
 
 {% block title %}Create an account{% endblock %}
 
 {% block content %}
-  <h1>Create an account</h1>
-  <p>Please, sign up using the following form:</p>
-  <form method="post">
-    {{ user_form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Create my account"></p>
-  </form>
+  <div id="register-account" class="row p-3 text-white">
+    <div class="col-lg-6 d-md-none d-sm-none d-lg-block bg-white left-box left-content">
+      <div class="featured-image d-flex justify-content-center  mb-3">
+        <img src="{% static 'img/abstract_572.jpg' %}" class="img-fluid" style="width: 450px;">
+      </div>
+    </div>
+    <div id="right-content" class="col-lg-6 col-md-12 col-sm-12 right-box bg-orange-500 p-5">
+      <h1 class="fw-bolder text-center">Crie a sua conta</h1>
+      <p class="fw-normal text-center ">Por favor, inscreva-se usando o seguinte formulário</p>
+      <form id="form-register" method="post">
+        {{ user_form|crispy }}
+        {% csrf_token %}
+        <p><input id="btn-register" class="btn w-100 text-white fw-bolder bg-orange-800" type="submit" value="Criar a minha conta"></p>
+      </form>
+    </div>
+  </div>
 {% endblock %}

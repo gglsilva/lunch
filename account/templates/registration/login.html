@@ -8,7 +8,7 @@
   <div id="login" class="row p-3 text-white">
     <!-- Left -->
     
-    <div  id="left-content" class="col-lg-6 d-md-none d-sm-none d-lg-block bg-white left-box">
+    <div class="col-lg-6 d-md-none d-sm-none d-lg-block bg-white left-box left-content">
       <div class="featured-image d-flex justify-content-center  mb-3">
         <img src="{% static 'img/abstract_572.jpg' %}" class="img-fluid" style="width: 450px;">
       </div>
@@ -36,22 +36,24 @@
               </div>
             </div>
             <div class="input-group d-flex justify-content-between align-content-center mt-1">
-              <div class="col-5"><button class="btn btn-register w-100">Cadastrar</button></div>
-              <div class="col-5"><button class="btn btn-login w-100">Log-in</button></div>
+              <div class="col-5">
+                <a class="btn btn-register w-100" href="{% url 'account:register' %}">Cadastrar</a>
+              </div>
+              <div class="col-5">
+                <button class="btn btn-login w-100" type="submit">Log-in</button>
+              </div>
             </div>
           </form>
           <div class="social mt-4">
-            <!-- <div class="input-group d-flex justify-content-between align-content-center"> -->
-              <h4 id="social-access">Ou acesse com</h4>
-              <div class="social-links input-group d-flex gap-4 justify-content-center align-content-center">
-                <a href="">
-                  <img src="{% static 'icons/pesquisa.png' %}" alt="" width="25px">
-                </a>
-                <a href="">
-                  <img src="{% static 'icons/facebook.png' %}" alt="" width="25px">
-                </a>
-              </div>
-            <!-- </div> -->
+            <h4 id="social-access">Ou acesse com</h4>
+            <div class="social-links input-group d-flex gap-4 justify-content-center align-content-center">
+              <a href="">
+                <img src="{% static 'icons/pesquisa.png' %}" alt="" width="25px">
+              </a>
+              <a href="">
+                <img src="{% static 'icons/facebook.png' %}" alt="" width="25px">
+              </a>
+            </div>
           </div>
         </div>
       </div>
