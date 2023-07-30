@@ -1,0 +1,41 @@
+{% csrf_token %}
+<section class="product-section">
+    <div class="opcao">
+        <h3 class="pri-title">Opcões*</h3>
+        <div class="row">
+            {% for opcao in opcoes %}
+            <div class="coluna">
+                <!-- Renderize os dados na coluna atual -->
+                <div class="product-select">
+                    <input id="checkboxes" type="checkbox" value="{{ opcao.id }}">
+                    <label class="product-item">{{ opcao.name }}</label>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="product-section">
+    <div class="acompanhamento">
+        <h3 class="pri-title">Acompanhamentos*</h3>
+        <div class="row">
+            {% for acompanhamento in acompanhamentos %}
+                <div class="coluna">
+                    <!-- Renderize os dados na coluna atual -->
+                    <div class="product-select">
+                        <input id="checkboxes" type="checkbox" value="{{ acompanhamento.id }}">
+                        <label class="product-item">{{ acompanhamento.name }}</label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section id="confirm-section">
+    <h3 class="pri-title">Observação</h3>
+    <div class="observacao">
+        <label for="">Mensagem:</label>
+        <textarea id="msg" name="msg" rows="4" cols="50"></textarea>
+    </div>
+    <button type="button" id="confirm-order" onclick="saveContent()">Confirmar perdido</button>
+</section>

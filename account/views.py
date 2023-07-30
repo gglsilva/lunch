@@ -4,8 +4,11 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Profile
+from order.models import Order
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 
 def user_login(request):
@@ -32,9 +35,17 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
+    template_name = 'account/dashboard.html'
+    orders = Order.objects.filter(client=request.user.profile)
+
+    context = {
+        'orders': orders,
+        'section': dashboard,
+    }
+
     return render(request,
-                  'account/dashboard.html',
-                  {'section': 'dashboard'})
+                  template_name,
+                  context)
 
 
 def register(request):
@@ -86,3 +97,5 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+
+

@@ -17,6 +17,12 @@ body{
     z-index: 1;
 }
 /* backgrounds */
+.bg-black-900 {
+    background-color:#0f172a;
+}
+.bg-black-700{
+    background-color:#334155;
+}
 .bg-orange-200 {
     background-color: #FDECC1;
 }
@@ -26,6 +32,23 @@ body{
 
 .bg-orange-800 {
     background-color: #C6401D;
+}
+.bg-zinc-800 {
+    background-color: #27272a;
+}
+
+/* logo */
+#logo-lunch{
+    width: 35px;
+    margin-right: 0.5em;
+}
+
+#user-icon{
+    background-color: #EC8E00;
+    color: white;
+    border-radius: 50%;
+    border: 2px white solid;
+    padding:0.5em;
 }
 /* Inputs */
 #id_username, #id_password {
